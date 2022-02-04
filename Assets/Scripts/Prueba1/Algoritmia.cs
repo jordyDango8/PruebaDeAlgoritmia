@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class Algoritmia : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class Algoritmia : MonoBehaviour
 
         Convertir(baseDatosIF, out longitudBaseDatos).CopyTo(baseDatos, 0);        
         Convertir(evaluarIF, out longitudEvaluar).CopyTo(evaluar, 0);
-        ImprimirArreglos();                                     
+        //ImprimirArreglos();                                     
         ObtenerResultados();
         MostrarResultados();
     }
@@ -49,13 +50,13 @@ public class Algoritmia : MonoBehaviour
                 {    
                     if(i == 0)
                     {                        
-                        Debug.Log("X " + baseDatos[i]);
+                        //Debug.Log("X " + baseDatos[i]);
                         resultado[j, 0] = "X";
                         resultado[j, 1] = baseDatos[i].ToString();
                     }                   
                     else
                     {
-                        Debug.Log(baseDatos[i-1] + " " + baseDatos[i]);
+                        //Debug.Log(baseDatos[i-1] + " " + baseDatos[i]);
                         resultado[j, 0] = baseDatos[i-1].ToString();
                         resultado[j, 1] = baseDatos[i].ToString();
                     }                                                                             
@@ -65,7 +66,7 @@ public class Algoritmia : MonoBehaviour
                 {
                     if(longitudBaseDatos == 1)
                     {
-                        Debug.Log("X " + "X");
+                        //Debug.Log("X " + "X");
                         resultado[j, 0] = "X";
                         resultado[j, 1] = "X";
                     }
@@ -73,19 +74,19 @@ public class Algoritmia : MonoBehaviour
                     {
                         if(i == 0)
                         {                        
-                            Debug.Log("X " + baseDatos[i+1]);
+                            //Debug.Log("X " + baseDatos[i+1]);
                             resultado[j, 0] = "X";
                             resultado[j, 1] = baseDatos[i+1].ToString();
                         }
                         else if(i == longitudBaseDatos - 1)
                         {                        
-                            Debug.Log(baseDatos[i-1] + " X");
+                            //Debug.Log(baseDatos[i-1] + " X");
                             resultado[j, 0] = baseDatos[i-1].ToString();
                             resultado[j, 1] = "X";
                         }
                         else
                         {
-                            Debug.Log(baseDatos[i-1] + " " + baseDatos[i+1]);
+                            //Debug.Log(baseDatos[i-1] + " " + baseDatos[i+1]);
                             resultado[j, 0] = baseDatos[i-1].ToString();
                             resultado[j, 1] = baseDatos[i+1].ToString();
                         }
@@ -94,7 +95,7 @@ public class Algoritmia : MonoBehaviour
                 }         
                 else if(i == longitudBaseDatos - 1)                        
                 {
-                    Debug.Log(baseDatos[i] + " X");
+                    //Debug.Log(baseDatos[i] + " X");
                     resultado[j, 0] = baseDatos[i].ToString();
                     resultado[j, 1] = "X";
                 }  
@@ -131,6 +132,11 @@ public class Algoritmia : MonoBehaviour
         {        
             Debug.Log("E " + i + " " + evaluar[i]);    
         } 
+    }
+
+    public void Menu()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
 }
